@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authors - Data Sharing with GDPR</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #1e3c72 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .breadcrumb {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 25px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #2c5aa0;
+        }
+        
+        .breadcrumb-link {
+            color: #2c5aa0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .breadcrumb-link:hover {
+            color: #1e3c72;
+            text-decoration: underline;
+        }
+        
+        .breadcrumb-separator {
+            color: #5a6c7d;
+            margin: 0 10px;
+        }
+        
+        .breadcrumb-current {
+            color: #1e3c72;
+            font-weight: 700;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 80px;
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border-radius: 0;
+            backdrop-filter: blur(20px);
+            border-bottom: 3px solid rgba(255, 255, 255, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.03) 50%, transparent 70%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        
+        @keyframes shimmer {
+            0%, 100% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
+        }
+        
+        .header h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+            letter-spacing: -2px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header p {
+            font-size: 1.4rem;
+            opacity: 0.95;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .authors-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.95) 100%);
+            padding: 80px;
+            margin-bottom: 80px;
+            position: relative;
+        }
+        
+        .authors-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #2c5aa0, #1e3c72, #2c5aa0);
+        }
+        
+        .authors-section h2 {
+            text-align: center;
+            color: #1e3c72;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            position: relative;
+        }
+        
+        .authors-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #2c5aa0, #1e3c72);
+            border-radius: 2px;
+        }
+        
+        .authors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .author-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 50px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-left: 6px solid #2c5aa0;
+            position: relative;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .author-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 0;
+            background: linear-gradient(180deg, #2c5aa0, #1e3c72);
+            transition: height 0.4s ease;
+        }
+        
+        .author-card:hover {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            transform: translateX(15px) translateY(-5px);
+        }
+        
+        .author-card:hover::before {
+            height: 100%;
+        }
+        
+        .author-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+        
+        .author-avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #2c5aa0, #1e3c72);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-right: 30px;
+            box-shadow: 0 8px 25px rgba(44, 90, 160, 0.3);
+            flex-shrink: 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .author-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+        
+        .author-avatar:hover .author-image {
+            transform: scale(1.05);
+        }
+        
+        .author-info {
+            flex: 1;
+        }
+        
+        .author-name {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #1e3c72;
+            margin-bottom: 8px;
+            letter-spacing: -0.3px;
+        }
+        
+        .author-title {
+            font-size: 1.1rem;
+            color: #2c5aa0;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .author-affiliation {
+            font-size: 1rem;
+            color: #5a6c7d;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .author-bio {
+            color: #4a5568;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+        
+        .author-expertise {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #e8f4fd;
+        }
+        
+        .expertise-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+        
+        .expertise-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .expertise-tag {
+            background: linear-gradient(135deg, #e8f4fd, #f0f8ff);
+            color: #2c5aa0;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid rgba(44, 90, 160, 0.2);
+        }
+        
+        .author-website {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #e8f4fd;
+        }
+        
+        .website-link {
+            display: inline-flex;
+            align-items: center;
+            color: #2c5aa0;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #e8f4fd, #f0f8ff);
+            border: 1px solid rgba(44, 90, 160, 0.2);
+        }
+        
+        .website-link:hover {
+            color: #1e3c72;
+            background: linear-gradient(135deg, #f0f8ff, #e8f4fd);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(44, 90, 160, 0.2);
+        }
+        
+        .website-link i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 50px 0;
+            opacity: 0.9;
+            background: rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .footer p {
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .footer small {
+            opacity: 0.7;
+            font-weight: 400;
+        }
+        
+        @media (max-width: 768px) {
+            .authors-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .author-card {
+                padding: 30px;
+            }
+            
+            .author-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .author-avatar {
+                margin-right: 0;
+                margin-bottom: 20px;
+                width: 100px;
+                height: 100px;
+            }
+            
+            .author-image {
+                width: 100%;
+                height: 100%;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .authors-section {
+                padding: 50px 30px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html" class="breadcrumb-link"><i class="fas fa-home"></i> Home</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">Authors</span>
+        </div>
+        
+        <div class="header">
+            <h1><i class="fas fa-users"></i> Meet the Authors</h1>
+            <p>Expert researchers and practitioners in data protection and privacy</p>
+        </div>
+        
+        <div class="authors-section">
+            <h2>Our Team</h2>
+            <div class="authors-grid">
+                <div class="author-card">
+                    <div class="author-header">
+                        <div class="author-avatar">
+                            <img src="https://via.placeholder.com/120x120/2c5aa0/ffffff?text=TRC" alt="Dr. Tek Raj Chhetri" class="author-image">
+                        </div>
+                        <div class="author-info">
+                            <div class="author-name">Dr. Tek Raj Chhetri</div>
+                            <div class="author-title">Postdoctoral Associate</div>
+                            <div class="author-affiliation">Massachusetts Institute of Technology, USA<br/>Center for Artificial Intelligence (AI) Research Nepal</div>
+                        </div>
+                    </div>
+                    <div class="author-bio">
+                        Dr. Tek Raj Chhetri is the founder and director of the Center for Artificial Intelligence (AI) Research Nepal (CAIR-Nepal) and a postdoctoral associate at the Massachusetts Institute of Technology, USA. His scholarly pursuits revolve around the intricate realms of data privacy and AI. His research on AI concentrates on AI explainability and the sculpting of data privacy and Internet of Things (IoT) data sharing via the intricate design of scalable, interoperable, and GDPR-compliant systems.
+                    </div>
+                    <div class="author-bio">
+                        During his doctoral studies, he contributed to developing a scalable GDPR-compliance verification tool, which was part of his doctoral thesis graded as excellent, and has been recognized as one of the key deep tech innovations by the European Innovation Radar. His work on GDPR has also impacted the policy document "Advancing accountability in AI" by the OECD (Organisation for Economic Co-operation and Development) and Federal Ministry of Labour and Social Affairs Germany with the support of around 200 experts.
+                    </div>
+                    <div class="author-bio">
+                        In addition, Tek Raj Chhetri has experience with software development, cloud computing, and autonomous vehicles for industrial and research purposes. He has (co-) authored over 20 referred publications in top journals and conferences in the areas of artificial intelligence, data sharing and GDPR.
+                    </div>
+                    <div class="author-website">
+                        <a href="https://tekrajchhetri.com" target="_blank" class="website-link">
+                            <i class="fas fa-globe"></i> https://tekrajchhetri.com
+                        </a>
+                    </div>
+                    <div class="author-expertise">
+                        <div class="expertise-title">Areas of Expertise:</div>
+                        <div class="expertise-tags">
+                            <span class="expertise-tag">Artificial Intelligence</span>
+                            <span class="expertise-tag">Data Privacy</span>
+                            <span class="expertise-tag">Knowledge Graphs</span>
+                            <span class="expertise-tag">Responsible AI</span>
+                            <span class="expertise-tag">Cloud Computing</span>
+                            <span class="expertise-tag">Autonomous Vehicles</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="author-card">
+                    <div class="author-header">
+                        <div class="author-avatar">
+                            <img src="https://via.placeholder.com/120x120/2c5aa0/ffffff?text=SY" alt="Dr. Semih Yumusak" class="author-image">
+                        </div>
+                        <div class="author-info">
+                            <div class="author-name">Dr. Semih Yumusak</div>
+                            <div class="author-title">Research Fellow</div>
+                            <div class="author-affiliation">University of Southampton, UK</div>
+                        </div>
+                    </div>
+                    <div class="author-bio">
+                        Dr. Semih Yumusak is currently a Research Fellow at the Web and Internet Science (WAIS) group, which researches large-scale systems that combine computational, data, and human components at the University of Southampton. Prior to joining the University of Southampton, Dr. Yumusak was the head of the department at the KTO Karatay University Turkey and a lecturer at Koc University, one of the top universities in Turkey, where he lectured a master's level course on Big Data Systems.
+                    </div>
+                    <div class="author-bio">
+                        Dr. Yumusak holds an MBA degree in addition to his doctoral degree in Computer Engineering. Dr. Yumusak has worked (or is working) on several European projects, such as (i) QROWD, a project that focuses on cross-sectorial big data stream integration to improve city services like mobility and quality of life of citizens; (ii) UPCAST, project that focuses on developing GDPR-compliant plugins for data sharing and monetization of data; and (iii) RAISE, a project that focuses on enabling FAIR data sharing and processing in a privacy-aware manner.
+                    </div>
+                    <div class="author-bio">
+                        In addition to his academic experience, Dr. Yumusak has over 15 years of industrial experience, both developing and managing large scale cloud and network systems. Further to working on cloud and network systems, Dr. Yumusak has also worked in the area of artificial intelligence developing predictive models with AI4BD AG. He has (co-) authored over 20 refereed publications.
+                    </div>
+                    <div class="author-expertise">
+                        <div class="expertise-title">Areas of Expertise:</div>
+                        <div class="expertise-tags">
+                            <span class="expertise-tag">Big Data Systems</span>
+                            <span class="expertise-tag">Cloud Computing</span>
+                            <span class="expertise-tag">Network Systems</span>
+                            <span class="expertise-tag">Predictive AI Models</span>
+                            <span class="expertise-tag">FAIR Data Sharing</span>
+                            <span class="expertise-tag">GDPR Compliance</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="author-card">
+                    <div class="author-header">
+                        <div class="author-avatar">
+                            <img src="https://via.placeholder.com/120x120/2c5aa0/ffffff?text=LDI" alt="Dr. Luis-Daniel Ibáñez" class="author-image">
+                        </div>
+                        <div class="author-info">
+                            <div class="author-name">Dr. Luis-Daniel Ibáñez</div>
+                            <div class="author-title">Associate Professor</div>
+                            <div class="author-affiliation">2 University of Southampton, UK</div>
+                        </div>
+                    </div>
+                    <div class="author-bio">
+                        Dr. Luis-Daniel Ibáñez is a Lecturer at the University of Southampton where he leads the MSc. Data Science program. He has participated in multiple research projects related to data protection and privacy, including technical coordinator roles. Previous to his academic career, he was Software Engineer for the Government sector.
+                    </div>
+                    <div class="author-bio">
+                        He was an appointed expert of the EU Blockchain Observatory where he conducted research on the relationship between Blockchain technologies and the GDPR.
+                    </div>
+                    <div class="author-expertise">
+                        <div class="expertise-title">Areas of Expertise:</div>
+                        <div class="expertise-tags">
+                            <span class="expertise-tag">Data Science</span>
+                            <span class="expertise-tag">Data Protection</span>
+                            <span class="expertise-tag">Privacy Research</span>
+                            <span class="expertise-tag">Blockchain & GDPR</span>
+                            <span class="expertise-tag">Government Systems</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="author-card">
+                    <div class="author-header">
+                        <div class="author-avatar">
+                            <img src="https://via.placeholder.com/120x120/2c5aa0/ffffff?text=AF" alt="Prof. Dr. Anna Fensel" class="author-image">
+                        </div>
+                        <div class="author-info">
+                            <div class="author-name">Prof. Dr. Anna Fensel</div>
+                            <div class="author-title">Professor</div>
+                            <div class="author-affiliation">Wageningen University, the Netherlands</div>
+                        </div>
+                    </div>
+                    <div class="author-bio">
+                        Prof. Dr. Anna Fensel (former name: Anna V. Zhdanova) is a Full Professor in Artificial Intelligence and Data Science at Wageningen University & Research, Wageningen, the Netherlands. Previously, she was an Associate Professor and Senior Assistant Professor at STI Innsbruck, Department of Computer Science, University of Innsbruck, Austria, and prior to this worked as a Senior Researcher at FTW – Telecommunications Research Center Vienna, Austria, and a Research Fellow at the University of Surrey, UK, and as a project employee at DERI Innsbruck, University of Innsbruck, Austria.
+                    </div>
+                    <div class="author-bio">
+                        Anna has earned both her habilitation (2018) and her doctoral degree (2006) in Computer Science at the University of Innsbruck. Prior to that, she has received a diploma in Mathematics and Computer Science equivalent to the Master degree in 2003 from Novosibirsk State University, Russia.
+                    </div>
+                    <div class="author-bio">
+                        Anna has been extensively involved in European and national projects related to Semantic technologies, e.g. as a consortium coordinator (EURegio project REEeT, FFG projects TourPack, SESAME-S and SESAME, ÖAD project RESIDE), a partner project manager (H2020 OntoCommons, H2020 smashHit, Eurostars WordLiftNG, Interreg KI-Net, BMWi-FFG CampaNeo, H2020 ENTROPY, FFG DALICC, FFG OpenFridge, FP7 CSA BYTE, FP7 CA BIG, FP7 CA PRELIDA, FP7 STREP m:Ciudad, FP7 NoE PlanetData, AAL PeerAssist, FP6 IST IP SPICE, FP5 IST project Esperonto) as well as a technical contributor in other numerous projects.
+                    </div>
+                    <div class="author-bio">
+                        She has been a co-organizer or a Program Committee member of more than 100 scientific events including being in chair roles at top events such as SEMANTiCS and ESWC, a reviewer for numerous journals and a project proposals evaluator for funding agencies (EU H2020 and FP6, Eureka-Eurostars, national funding). She is a (co-)author of ca. 150 refereed publications.
+                    </div>
+                    <div class="author-website">
+                        <a href="https://sites.google.com/site/annafensel/" target="_blank" class="website-link">
+                            <i class="fas fa-globe"></i> https://sites.google.com/site/annafensel/
+                        </a>
+                    </div>
+                    <div class="author-expertise">
+                        <div class="expertise-title">Areas of Expertise:</div>
+                        <div class="expertise-tags">
+                            <span class="expertise-tag">Artificial Intelligence</span>
+                            <span class="expertise-tag">Data Science</span>
+                            <span class="expertise-tag">Semantic Technologies</span>
+                            <span class="expertise-tag">European Projects</span>
+                            <span class="expertise-tag">Research Leadership</span>
+                            <span class="expertise-tag">Academic Excellence</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="author-card">
+                    <div class="author-header">
+                        <div class="author-avatar">
+                            <img src="https://via.placeholder.com/120x120/2c5aa0/ffffff?text=GK" alt="Prof. George Konstantinidis" class="author-image">
+                        </div>
+                        <div class="author-info">
+                                                    <div class="author-name">Prof. George Konstantinidis</div>
+                        <div class="author-title">Professor</div>
+                            <div class="author-affiliation">2 University of Southampton, UK</div>
+                        </div>
+                    </div>
+                    <div class="author-bio">
+                        Prof. George Konstantinidis is a Professor at the School of Electronics and Computer Science, University of Southampton. His research interests include data management and A.I., data integration, data privacy, the semantic web, and distributed systems. He has been involved in a number of US, EU and UK projects, and has published over 40 articles in international conferences and journals.
+                    </div>
+                    <div class="author-bio">
+                        He is currently the scientific coordinator for the Horizon Europe project UPCAST that is delivering a set of universal tools for data marketplaces.
+                    </div>
+                    <div class="author-expertise">
+                        <div class="expertise-title">Areas of Expertise:</div>
+                        <div class="expertise-tags">
+                            <span class="expertise-tag">Data Management</span>
+                            <span class="expertise-tag">Data Integration</span>
+                            <span class="expertise-tag">Data Privacy</span>
+                            <span class="expertise-tag">Semantic Web</span>
+                            <span class="expertise-tag">Distributed Systems</span>
+                            <span class="expertise-tag">Data Marketplaces</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>&copy; 2024 Data Sharing with GDPR. All rights reserved.</p>
+            <p><small>This website serves as a companion resource for the book "Data Sharing with GDPR"</small></p>
+        </div>
+    </div>
+    
+    <script>
+        // Add smooth animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateX(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe author cards
+        const authorCards = document.querySelectorAll('.author-card');
+        authorCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateX(-30px)';
+            card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

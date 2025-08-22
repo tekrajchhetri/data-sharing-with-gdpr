@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDPR Articles Visual Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #1e3c72 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+            padding: 60px 0;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 0;
+            backdrop-filter: blur(15px);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .header h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            letter-spacing: -1px;
+        }
+        
+        .header p {
+            font-size: 1.4rem;
+            opacity: 0.95;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+        
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 35px;
+            transition: all 0.3s ease;
+            border-left: 5px solid;
+            margin-bottom: 30px;
+        }
+        
+        .section:hover {
+            background: #ffffff;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transform: translateX(10px);
+        }
+        
+        .section.principles { border-left-color: #4CAF50; }
+        .section.rights { border-left-color: #2196F3; }
+        .section.protection { border-left-color: #FF9800; }
+        .section.special { border-left-color: #F44336; }
+        .section.transfers { border-left-color: #9C27B0; }
+        .section.authorities { border-left-color: #607D8B; }
+        .section.remedies { border-left-color: #795548; }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .section-icon {
+            font-size: 2rem;
+            margin-right: 15px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            color: white;
+        }
+        
+        .principles .section-icon { background: #4CAF50; }
+        .rights .section-icon { background: #2196F3; }
+        .protection .section-icon { background: #FF9800; }
+        .special .section-icon { background: #F44336; }
+        .transfers .section-icon { background: #9C27B0; }
+        .authorities .section-icon { background: #607D8B; }
+        .remedies .section-icon { background: #795548; }
+        
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1e3c72;
+            letter-spacing: -0.3px;
+        }
+        
+        .article {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+        
+        .article:hover {
+            background: #ffffff;
+            border-left-color: #2c5aa0;
+            transform: translateX(8px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .article-number {
+            font-weight: 700;
+            color: #2c5aa0;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+        
+        .article-title {
+            font-weight: 600;
+            color: #1e3c72;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .article-description {
+            color: #5a6c7d;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        
+        .search-box {
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 18px 60px 18px 25px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 30px;
+            font-size: 1.1rem;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 400;
+        }
+        
+        .search-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #2c5aa0;
+            font-size: 1.3rem;
+            background: rgba(255, 255, 255, 0.9);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus + .search-icon {
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .breadcrumb {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 25px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #2c5aa0;
+        }
+        
+        .breadcrumb-link {
+            color: #2c5aa0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .breadcrumb-link:hover {
+            color: #1e3c72;
+            text-decoration: underline;
+        }
+        
+        .breadcrumb-separator {
+            color: #5a6c7d;
+            margin: 0 10px;
+        }
+        
+        .breadcrumb-current {
+            color: #1e3c72;
+            font-weight: 700;
+        }
+        
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="../index.html" class="breadcrumb-link"><i class="fas fa-home"></i> Home</a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="../index.html#chapters" class="breadcrumb-link">Chapters</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">Chapter 2: GDPR Articles</span>
+        </div>
+        
+        <div class="header">
+            <h1><i class="fas fa-shield-alt"></i> GDPR Articles Guide</h1>
+            <p>Comprehensive overview of General Data Protection Regulation articles</p>
+        </div>
+        
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="Search articles..." id="searchInput">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+        
+        <div class="grid">
+            <div class="section principles">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <div class="section-title">Core Principles</div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-number">Article 5.1.a</div>
+                    <div class="article-title">Lawfulness, Fairness and Transparency</div>
+                    <div class="article-description">Ensures data is processed lawfully, fairly and transparently</div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-number">Article 5.1.b</div>
+                    <div class="article-title">Purpose Limitation</div>
+                    <div class="article-description">Data must be collected for specified, explicit purposes</div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-number">Article 5.1.c</div>
+                    <div class="article-title">Data Minimisation</div>
+                    <div class="article-description">Only data necessary for the purpose should be processed</div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-number">Article 5.1.d</div>
+                    <div class="article-title">Accuracy</div>
+                    <div class="article-description">Personal data must be accurate and kept up to date</div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-number">Article 5.1.e</div>
+                    <div class="article-title">Storage Limitation</div>
+                    <div class="article-description">Keep data no longer than necessary</div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-number">Article 5.1.f</div>
+                    <div class="article-title">Integrity and Confidentiality</div>
+                    <div class="article-description">Ensure security and confidentiality of personal data</div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-number">Article 5.2</div>
+                    <div class="article-title">Accountability</div>
+                    <div class="article-description">Controllers are responsible for GDPR compliance</div>
+                </div>
+            </div>
+            
+            <div class="section rights">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <div class="section-title">Data Subject Rights</div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-number">Article 15</div>
+                    <div class="article-title">Right to Access</div>
+                    <div class="article-description">Right to access personal data</div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-number">Article 16</div>
+                    <div class="article-title">Right to Rectification</div>
+                    <div class="article-description">Right to rectify inaccurate data</div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-number">Article 17</div>
+                    <div class="article-title">Right to Erasure</div>
+                    <div class="article-description">Right to erasure (right to be forgotten)</div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-number">Article 18</div>
+                    <div class="article-title">Right to Restriction</div>
+                    <div class="article-description">Right to restrict processing</div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-number">Article 20</div>
+                    <div class="article-title">Right to Data Portability</div>
+                    <div class="article-description">Right to data portability</div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-number">Article 21</div>
+                    <div class="article-title">Right to Object</div>
+                    <div class="article-description">Right to object to processing</div>
+                </div>
+            </div>
+            
+            <div class="section protection">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="section-title">Data Protection</div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-number">Article 25</div>
+                    <div class="article-title">Privacy by Design and Default</div>
+                    <div class="article-description">Data protection must be embedded into system design</div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-number">Article 32</div>
+                    <div class="article-title">Security of Processing</div>
+                    <div class="article-description">Requires appropriate technical and organizational security</div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-number">Article 33</div>
+                    <div class="article-title">Breach Notification to Authority</div>
+                    <div class="article-description">Notify authority within 72 hours of data breach</div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-number">Article 34</div>
+                    <div class="article-title">Breach Notification to Individuals</div>
+                    <div class="article-description">Inform affected individuals of data breach if high risk</div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-number">Article 35</div>
+                    <div class="article-title">Data Protection Impact Assessment</div>
+                    <div class="article-description">Required for high-risk processing operations</div>
+                </div>
+            </div>
+            
+            <div class="section special">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="section-title">Special Categories</div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-number">Article 6</div>
+                    <div class="article-title">Lawful Basis</div>
+                    <div class="article-description">Lists lawful bases for processing personal data</div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-number">Article 7</div>
+                    <div class="article-title">Conditions for Consent</div>
+                    <div class="article-description">Conditions for valid consent</div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-number">Article 8</div>
+                    <div class="article-title">Children's Consent</div>
+                    <div class="article-description">Consent rules for children's data</div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-number">Article 9</div>
+                    <div class="article-title">Sensitive Data</div>
+                    <div class="article-description">Prohibits processing of sensitive data unless exceptions apply</div>
+                </div>
+            </div>
+            
+            <div class="section transfers">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="section-title">International Transfers</div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-number">Article 44</div>
+                    <div class="article-title">General Principles</div>
+                    <div class="article-description">General principles for international data transfers</div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-number">Article 45</div>
+                    <div class="article-title">Adequacy Decisions</div>
+                    <div class="article-description">Transfers based on adequacy decisions</div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-number">Article 46</div>
+                    <div class="article-title">Appropriate Safeguards</div>
+                    <div class="article-description">Transfers with appropriate safeguards</div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-number">Article 49</div>
+                    <div class="article-title">Derogations</div>
+                    <div class="article-description">Derogations for specific situations</div>
+                </div>
+            </div>
+            
+            <div class="section remedies">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <div class="section-title">Remedies & Penalties</div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-number">Article 77</div>
+                    <div class="article-title">Right to Lodge Complaint</div>
+                    <div class="article-description">Right to lodge a complaint</div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-number">Article 79</div>
+                    <div class="article-title">Right to Judicial Remedy</div>
+                    <div class="article-description">Right to judicial remedy against controller/processor</div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-number">Article 82</div>
+                    <div class="article-title">Right to Compensation</div>
+                    <div class="article-description">Right to compensation</div>
+                </div>
+                
+                <div class="article">
+                    <div class="article-number">Article 83</div>
+                    <div class="article-title">Administrative Fines</div>
+                    <div class="article-description">Administrative fines</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const articles = document.querySelectorAll('.article');
+        const sections = document.querySelectorAll('.section');
+        
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            
+            articles.forEach(article => {
+                const articleText = article.textContent.toLowerCase();
+                const section = article.closest('.section');
+                
+                if (articleText.includes(searchTerm)) {
+                    article.style.display = 'block';
+                    section.style.display = 'block';
+                } else {
+                    article.style.display = 'none';
+                }
+            });
+            
+            // Hide sections with no visible articles
+            sections.forEach(section => {
+                const visibleArticles = section.querySelectorAll('.article[style*="block"]');
+                if (visibleArticles.length === 0 && searchTerm !== '') {
+                    section.style.display = 'none';
+                } else if (searchTerm === '') {
+                    section.style.display = 'block';
+                    section.querySelectorAll('.article').forEach(article => {
+                        article.style.display = 'block';
+                    });
+                }
+            });
+        });
+        
+        // Add hover effects and animations
+        articles.forEach(article => {
+            article.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateX(10px)';
+            });
+            
+            article.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateX(0)';
+            });
+        });
+    </script>
+</body>
+</html>

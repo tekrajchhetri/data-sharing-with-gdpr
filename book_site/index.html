@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Sharing with GDPR - A Comprehensive Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #1e3c72 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 100px;
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border-radius: 0;
+            backdrop-filter: blur(20px);
+            border-bottom: 3px solid rgba(255, 255, 255, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.03) 50%, transparent 70%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        
+        @keyframes shimmer {
+            0%, 100% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
+        }
+        
+        .header h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 25px;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+            letter-spacing: -2px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header .subtitle {
+            font-size: 1.8rem;
+            opacity: 0.95;
+            margin-bottom: 35px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .authors {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 50px;
+            line-height: 2;
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .authors-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 8px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .authors-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .book-description {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.95) 100%);
+            padding: 80px;
+            margin-bottom: 100px;
+            text-align: center;
+            border-bottom: 4px solid #2c5aa0;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .book-description::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #2c5aa0, #1e3c72, #2c5aa0);
+        }
+        
+        .book-description h2 {
+            color: #1e3c72;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            position: relative;
+        }
+        
+        .book-description h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #2c5aa0, #1e3c72);
+            border-radius: 2px;
+        }
+        
+        .book-description p {
+            color: #4a5568;
+            font-size: 1.2rem;
+            max-width: 900px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+        
+        .chapters-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.95) 100%);
+            padding: 100px 80px;
+            margin-bottom: 100px;
+            position: relative;
+        }
+        
+        .chapters-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #2c5aa0, #1e3c72, #2c5aa0);
+        }
+        
+        .chapters-section h2 {
+            text-align: center;
+            color: #1e3c72;
+            font-size: 3rem;
+            margin-bottom: 80px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            position: relative;
+        }
+        
+        .chapters-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #2c5aa0, #1e3c72);
+            border-radius: 2px;
+        }
+        
+        .chapters-list {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .chapter-item {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            margin-bottom: 40px;
+            padding: 50px;
+            border-left: 6px solid #2c5aa0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .chapter-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 0;
+            background: linear-gradient(180deg, #2c5aa0, #1e3c72);
+            transition: height 0.4s ease;
+        }
+        
+        .chapter-item:hover {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transform: translateX(15px) translateY(-2px);
+        }
+        
+        .chapter-item:hover::before {
+            height: 100%;
+        }
+        
+        .chapter-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .chapter-card.ch1 { border-left-color: #4CAF50; }
+        .chapter-card.ch2 { border-left-color: #2196F3; }
+        .chapter-card.ch3 { border-left-color: #FF9800; }
+        .chapter-card.ch4 { border-left-color: #F44336; }
+        .chapter-card.ch5 { border-left-color: #9C27B0; }
+        .chapter-card.ch6 { border-left-color: #607D8B; }
+        .chapter-card.ch7 { border-left-color: #795548; }
+        .chapter-card.ch8 { border-left-color: #E91E63; }
+        
+        .chapter-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .chapter-number {
+            background: linear-gradient(135deg, #2c5aa0, #1e3c72);
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 800;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-right: 30px;
+            box-shadow: 0 6px 20px rgba(44, 90, 160, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .chapter-number::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
+            animation: shimmer 2s ease-in-out infinite;
+        }
+        
+        .ch1 .chapter-icon { background: linear-gradient(135deg, #4CAF50, #66BB6A); }
+        .ch2 .chapter-icon { background: linear-gradient(135deg, #2196F3, #42A5F5); }
+        .ch3 .chapter-icon { background: linear-gradient(135deg, #FF9800, #FFB74D); }
+        .ch4 .chapter-icon { background: linear-gradient(135deg, #F44336, #EF5350); }
+        .ch5 .chapter-icon { background: linear-gradient(135deg, #9C27B0, #BA68C8); }
+        .ch6 .chapter-icon { background: linear-gradient(135deg, #607D8B, #90A4AE); }
+        .ch7 .chapter-icon { background: linear-gradient(135deg, #795548, #A1887F); }
+        .ch8 .chapter-icon { background: linear-gradient(135deg, #E91E63, #F06292); }
+        
+        .chapter-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #1e3c72;
+            letter-spacing: -0.5px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .chapter-goals {
+            color: #4a5568;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            font-weight: 500;
+        }
+        
+        .chapter-summary {
+            color: #1e3c72;
+            font-weight: 600;
+            font-size: 1.05rem;
+            background: linear-gradient(135deg, #e8f4fd 0%, #f0f8ff 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #2c5aa0;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(44, 90, 160, 0.1);
+        }
+        
+        .chapter-resources {
+            color: #4a5568;
+            font-size: 1rem;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+        
+        .resource-link-small {
+            color: #2c5aa0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 2px 0;
+            position: relative;
+        }
+        
+        .resource-link-small::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #2c5aa0, #1e3c72);
+            transition: width 0.3s ease;
+        }
+        
+        .resource-link-small:hover {
+            color: #1e3c72;
+        }
+        
+        .resource-link-small:hover::after {
+            width: 100%;
+        }
+        
+        .resources-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.95) 100%);
+            padding: 100px 80px;
+            margin-bottom: 100px;
+            position: relative;
+        }
+        
+        .resources-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #2c5aa0, #1e3c72, #2c5aa0);
+        }
+        
+        .resources-section h2 {
+            color: #1e3c72;
+            font-size: 3rem;
+            margin-bottom: 80px;
+            text-align: center;
+            font-weight: 800;
+            letter-spacing: -1px;
+            position: relative;
+        }
+        
+        .resources-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #2c5aa0, #1e3c72);
+            border-radius: 2px;
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .resource-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 40px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-left: 5px solid #2c5aa0;
+            position: relative;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .resource-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 0;
+            background: linear-gradient(180deg, #2c5aa0, #1e3c72);
+            transition: height 0.4s ease;
+        }
+        
+        .resource-card:hover {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transform: translateX(12px) translateY(-3px);
+        }
+        
+        .resource-card:hover::before {
+            height: 100%;
+        }
+        
+        .resource-card h3 {
+            color: #1e3c72;
+            font-size: 1.4rem;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+        }
+        
+        .resource-card h3 i {
+            margin-right: 15px;
+            color: #2c5aa0;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, #2c5aa0, #1e3c72);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .resource-card p {
+            color: #4a5568;
+            margin-bottom: 25px;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+        
+        .resource-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #2c5aa0, #1e3c72);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(44, 90, 160, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .resource-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .resource-link:hover {
+            background: linear-gradient(135deg, #1e3c72, #2c5aa0);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(44, 90, 160, 0.4);
+        }
+        
+        .resource-link:hover::before {
+            left: 100%;
+        }
+        
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 50px 0;
+            opacity: 0.9;
+            background: rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .footer p {
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .footer small {
+            opacity: 0.7;
+            font-weight: 400;
+        }
+        
+        .search-box {
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 18px 60px 18px 25px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 30px;
+            font-size: 1.1rem;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 400;
+        }
+        
+        .search-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #2c5aa0;
+            font-size: 1.3rem;
+            background: rgba(255, 255, 255, 0.9);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus + .search-icon {
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .chapters-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .book-description,
+            .resources-section {
+                padding: 30px 20px;
+            }
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .header,
+            .search-box {
+                display: none;
+            }
+            
+            .book-description,
+            .resources-section {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-shield-alt"></i> Data Sharing with GDPR</h1>
+            <div class="subtitle">A Guide to Building Secure, Ethical, and Legally Compliant Systems</div>
+            <div class="authors">
+                <strong>Authors:</strong><br>
+                Dr. Tek Raj Chhetri, Dr. Semih Yumusak, Dr. Luis-Daniel Ibáñez,<br>
+                Prof. Dr. Anna Fensel and Assoc. Prof. George Konstantinidis<br>
+                <a href="authors.html" class="authors-link">View Full Author Profiles & Bios</a>
+            </div>
+        </div>
+        
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="Search chapters and resources..." id="searchInput">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+        
+        <div class="book-description">
+            <h2>About This Book</h2>
+            <p>
+                This comprehensive guide explores the intersection of data sharing and the General Data Protection Regulation (GDPR). 
+                From foundational concepts to practical implementation, this book provides essential insights for organizations, 
+                researchers, and practitioners navigating the complex landscape of privacy-preserving data sharing.
+            </p>
+            <p>
+                Whether you're building data sharing systems, ensuring GDPR compliance, or understanding the ethical implications 
+                of data processing, this book serves as your authoritative reference for modern data protection challenges.
+            </p>
+        </div>
+        
+        <div class="chapters-section" id="chapters">
+            <h2>Book Chapters</h2>
+            <div class="chapters-list">
+                <div class="chapter-item">
+                    <div class="chapter-header">
+                        <div class="chapter-number">1</div>
+                        <div class="chapter-title">Introduction</div>
+                    </div>
+                    <div class="chapter-goals">
+                        <strong>Chapter Goals:</strong><br>
+                        • Introduce privacy concepts and importance<br>
+                        • Discuss data protection vs. privacy<br>
+                        • Overview of data sharing and privacy needs<br>
+                        • Brief GDPR introduction and significance
+                    </div>
+                    <div class="chapter-summary">
+                        <strong>Summary:</strong> Establishes foundational understanding of privacy, data protection, and GDPR's role in data sharing.
+                    </div>
+                    <div class="chapter-resources">
+                        <strong>Resources:</strong> Coming Soon
+                    </div>
+                </div>
+                
+                <div class="chapter-item">
+                    <div class="chapter-header">
+                        <div class="chapter-number">2</div>
+                        <div class="chapter-title">Foundations of GDPR</div>
+                    </div>
+                    <div class="chapter-goals">
+                        <strong>Chapter Goals:</strong><br>
+                        • Introduce GDPR and legal bases with examples<br>
+                        • Clarify GDPR applicability scope<br>
+                        • Analyze GDPR impact on data sharing and economy<br>
+                        • Discuss enforcement and fines (>1884 cases, >3B euros)
+                    </div>
+                    <div class="chapter-summary">
+                        <strong>Summary:</strong> Comprehensive coverage of GDPR principles, scope, and real-world impact with enforcement statistics.
+                    </div>
+                    <div class="chapter-resources">
+                        <strong>Resources:</strong>
+                        <a href="ch2/gdpr_framework.html" class="resource-link-small">GDPR Framework Guide</a> •
+                        <a href="ch2/gdpr_guide.html" class="resource-link-small">GDPR Articles Reference</a> •
+                        <a href="ch2/gdpr_principles_mindmap.png" class="resource-link-small">GDPR Principles Mindmap</a>
+                    </div>
+                </div>
+                
+                <div class="chapter-item">
+                    <div class="chapter-header">
+                        <div class="chapter-number">3</div>
+                        <div class="chapter-title">Data Sharing and Data Economy</div>
+                    </div>
+                    <div class="chapter-goals">
+                        <strong>Chapter Goals:</strong><br>
+                        • Detailed introduction to data sharing<br>
+                        • Explore data quality, trust, and interoperability<br>
+                        • Comprehensive data economy coverage<br>
+                        • Application areas (digital healthcare, etc.)
+                    </div>
+                    <div class="chapter-summary">
+                        <strong>Summary:</strong> Provides big picture understanding of data sharing, data economy, and their interrelationships.
+                    </div>
+                    <div class="chapter-resources">
+                        <strong>Resources:</strong> Coming Soon
+                    </div>
+                </div>
+                
+                <div class="chapter-item">
+                    <div class="chapter-header">
+                        <div class="chapter-number">4</div>
+                        <div class="chapter-title">Ethical Considerations</div>
+                    </div>
+                    <div class="chapter-goals">
+                        <strong>Chapter Goals:</strong><br>
+                        • Focus on "what not to do" - unethical practices<br>
+                        • Ethical considerations and best practices<br>
+                        • Data minimization and transparency principles<br>
+                        • Technical implementation guidance
+                    </div>
+                    <div class="chapter-summary">
+                        <strong>Summary:</strong> Guides readers on avoiding unethical practices and implementing ethical data sharing systems.
+                    </div>
+                    <div class="chapter-resources">
+                        <strong>Resources:</strong> Coming Soon
+                    </div>
+                </div>
+                
+                <div class="chapter-item">
+                    <div class="chapter-header">
+                        <div class="chapter-number">5</div>
+                        <div class="chapter-title">Ensuring GDPR Compliance</div>
+                    </div>
+                    <div class="chapter-goals">
+                        <strong>Chapter Goals:</strong><br>
+                        • Introduce GDPR compliance requirements<br>
+                        • Discuss accountability mechanisms<br>
+                        • Various compliance methods and approaches<br>
+                        • Practical implementation strategies
+                    </div>
+                    <div class="chapter-summary">
+                        <strong>Summary:</strong> Comprehensive guide to understanding and achieving GDPR compliance in data sharing contexts.
+                    </div>
+                    <div class="chapter-resources">
+                        <strong>Resources:</strong> Coming Soon
+                    </div>
+                </div>
+                
+                <div class="chapter-item">
+                    <div class="chapter-header">
+                        <div class="chapter-number">6</div>
+                        <div class="chapter-title">Building Secure Systems</div>
+                    </div>
+                    <div class="chapter-goals">
+                        <strong>Chapter Goals:</strong><br>
+                        • Technical implementation perspectives<br>
+                        • Data quality, interoperability, and trust factors<br>
+                        • Decentralized approaches (IPFS, etc.)<br>
+                        • Best practices and common pitfalls
+                    </div>
+                    <div class="chapter-summary">
+                        <strong>Summary:</strong> Technical guide for building secure, interoperable data sharing systems with best practices.
+                    </div>
+                    <div class="chapter-resources">
+                        <strong>Resources:</strong> Coming Soon
+                    </div>
+                </div>
+                
+                <div class="chapter-item">
+                    <div class="chapter-header">
+                        <div class="chapter-number">7</div>
+                        <div class="chapter-title">Case Studies</div>
+                    </div>
+                    <div class="chapter-goals">
+                        <strong>Chapter Goals:</strong><br>
+                        • Real-world application scenarios<br>
+                        • Analysis of potential failure points<br>
+                        • Hospital patient monitoring systems<br>
+                        • Risk assessment and mitigation strategies
+                    </div>
+                    <div class="chapter-summary">
+                        <strong>Summary:</strong> Practical case studies highlighting common pitfalls and areas requiring special attention.
+                    </div>
+                    <div class="chapter-resources">
+                        <strong>Resources:</strong> Coming Soon
+                    </div>
+                </div>
+                
+                <div class="chapter-item">
+                    <div class="chapter-header">
+                        <div class="chapter-number">8</div>
+                        <div class="chapter-title">Trends and Considerations</div>
+                    </div>
+                    <div class="chapter-goals">
+                        <strong>Chapter Goals:</strong><br>
+                        • Emerging trends in data sharing<br>
+                        • Future considerations and developments<br>
+                        • Evolving regulatory landscape<br>
+                        • Strategic planning for organizations
+                    </div>
+                    <div class="chapter-summary">
+                        <strong>Summary:</strong> Forward-looking analysis of trends and strategic considerations for data sharing and GDPR compliance.
+                    </div>
+                    <div class="chapter-resources">
+                        <strong>Resources:</strong> Coming Soon
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="resources-section">
+            <h2><i class="fas fa-tools"></i> Resources & Code Examples</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <h3><i class="fas fa-shield-alt"></i> GDPR Framework Guide</h3>
+                    <p>Comprehensive visual guide covering GDPR principles, legal bases, territorial scope, and enforcement mechanisms.</p>
+                    <a href="ch2/gdpr_framework.html" class="resource-link">View Framework</a>
+                </div>
+                
+                <div class="resource-card">
+                    <h3><i class="fas fa-gavel"></i> GDPR Articles Reference</h3>
+                    <p>Detailed breakdown of GDPR articles organized by categories: principles, rights, protection, and more.</p>
+                    <a href="ch2/gdpr_guide.html" class="resource-link">View Articles</a>
+                </div>
+                
+                <div class="resource-card">
+                    <h3><i class="fas fa-brain"></i> GDPR Principles Mindmap</h3>
+                    <p>Visual representation of GDPR principles and their interconnections for better understanding.</p>
+                    <a href="ch2/gdpr_principles_mindmap.png" class="resource-link">View Mindmap</a>
+                </div>
+                
+                <div class="resource-card">
+                    <h3><i class="fas fa-code"></i> Code Examples</h3>
+                    <p>Practical code examples for implementing GDPR-compliant data sharing systems and privacy controls.</p>
+                    <a href="#" class="resource-link">Coming Soon</a>
+                </div>
+                
+                <div class="resource-card">
+                    <h3><i class="fas fa-file-pdf"></i> Compliance Checklists</h3>
+                    <p>Downloadable checklists and templates for GDPR compliance assessment and implementation.</p>
+                    <a href="#" class="resource-link">Coming Soon</a>
+                </div>
+                
+                <div class="resource-card">
+                    <h3><i class="fas fa-users"></i> Case Study Database</h3>
+                    <p>Collection of real-world case studies and examples from various industries and applications.</p>
+                    <a href="#" class="resource-link">Coming Soon</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>&copy; 2024 Data Sharing with GDPR. All rights reserved.</p>
+            <p><small>This website serves as a companion resource for the book "Data Sharing with GDPR"</small></p>
+        </div>
+    </div>
+    
+    <script>
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const chapterItems = document.querySelectorAll('.chapter-item');
+        const resourceCards = document.querySelectorAll('.resource-card');
+        
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            
+            // Search through chapter items
+            chapterItems.forEach(item => {
+                const itemText = item.textContent.toLowerCase();
+                if (itemText.includes(searchTerm) || searchTerm === '') {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            // Search through resource cards
+            resourceCards.forEach(card => {
+                const cardText = card.textContent.toLowerCase();
+                if (cardText.includes(searchTerm) || searchTerm === '') {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+        
+        // Add smooth animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateX(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe chapter items
+        chapterItems.forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateX(-30px)';
+            item.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(item);
+        });
+        
+        // Observe resource cards
+        resourceCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateX(-30px)';
+            card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
