@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Interoperability in data sharing" id="interop-datasharing-1">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="520" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="hdr-layer" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontStyle=2;fontColor=#777777;" value="&lt;font style=&quot;font-size: 25px;&quot;&gt;Interoperability layer&lt;/font&gt;" vertex="1">
+          <mxGeometry height="20" width="240" x="40" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="hdr-ctx" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontStyle=2;fontColor=#777777;" value="&lt;font style=&quot;font-size: 25px;&quot;&gt;Where it is used in data sharing&lt;/font&gt;" vertex="1">
+          <mxGeometry height="20" width="295" x="400" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="legal" parent="1" style="rounded=1;arcSize=28;whiteSpace=wrap;html=1;fillColor=#8DC63F;strokeColor=none;fontColor=#FFFFFF;align=left;spacingLeft=22;verticalAlign=middle;shadow=1;" value="&lt;font style=&quot;&quot;&gt;&lt;b style=&quot;font-size: 30px;&quot;&gt;Legal&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 27px;&quot;&gt;Interoperability&lt;/font&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="90" width="240" x="40" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="legal-ctx" parent="1" style="rounded=1;arcSize=14;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#8DC63F;strokeWidth=2;fontColor=#444444;align=left;spacingLeft=14;spacingRight=10;verticalAlign=middle;" value="&lt;font style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 20px;&quot;&gt;&lt;b&gt;Legal and regulatory basis for data sharing&lt;/b&gt;&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size: 20px;&quot;&gt;Agreements, legislation, data-protection requirements, consent, and cross-border compliance.&lt;/span&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="90" width="440" x="360" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="legal-edge" edge="1" parent="1" source="legal" style="endArrow=classic;html=1;strokeColor=#8DC63F;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="legal-ctx">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="org" parent="1" style="rounded=1;arcSize=28;whiteSpace=wrap;html=1;fillColor=#A23E8C;strokeColor=none;fontColor=#FFFFFF;align=left;spacingLeft=22;verticalAlign=middle;shadow=1;" value="&lt;b style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 30px;&quot;&gt;Organizational&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 27px;&quot;&gt;Interoperability&lt;/font&gt;" vertex="1">
+          <mxGeometry height="92" width="240" x="40" y="188" as="geometry" />
+        </mxCell>
+        <mxCell id="org-ctx" parent="1" style="rounded=1;arcSize=14;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A23E8C;strokeWidth=2;fontColor=#444444;align=left;spacingLeft=14;spacingRight=10;verticalAlign=middle;" value="&lt;font style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 20px;&quot;&gt;&lt;b&gt;Alignment of processes, responsibilities, &amp;amp; relationships&lt;/b&gt;&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size: 20px;&quot;&gt;Business processes alignment, roles &amp;amp; responsibilities governing the exchange&lt;/span&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="92" width="440" x="360" y="188" as="geometry" />
+        </mxCell>
+        <mxCell id="org-edge" edge="1" parent="1" source="org" style="endArrow=classic;html=1;strokeColor=#A23E8C;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="org-ctx">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sem" parent="1" style="rounded=1;arcSize=28;whiteSpace=wrap;html=1;fillColor=#36B5A6;strokeColor=none;fontColor=#FFFFFF;align=left;spacingLeft=22;verticalAlign=middle;shadow=1;" value="&lt;b style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 30px;&quot;&gt;Semantic&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 27px;&quot;&gt;Interoperability&lt;/font&gt;" vertex="1">
+          <mxGeometry height="90" width="240" x="40" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="sem-ctx" parent="1" style="rounded=1;arcSize=14;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#36B5A6;strokeWidth=2;fontColor=#444444;align=left;spacingLeft=14;spacingRight=10;verticalAlign=middle;" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b&gt;Preserved meaning of data&lt;/b&gt;&lt;br&gt;Shared vocabularies, schemata, taxonomies, code lists, metadata, and reusable data models.&lt;/font&gt;" vertex="1">
+          <mxGeometry height="90" width="440" x="360" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="sem-edge" edge="1" parent="1" source="sem" style="endArrow=classic;html=1;strokeColor=#36B5A6;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="sem-ctx">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tech" parent="1" style="rounded=1;arcSize=28;whiteSpace=wrap;html=1;fillColor=#F7941E;strokeColor=none;fontColor=#FFFFFF;align=left;spacingLeft=22;verticalAlign=middle;shadow=1;" value="&lt;b style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 30px;&quot;&gt;Technical&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 27px;&quot;&gt;Interoperability&lt;/font&gt;" vertex="1">
+          <mxGeometry height="90" width="240" x="40" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="tech-ctx" parent="1" style="rounded=1;arcSize=14;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#F7941E;strokeWidth=2;fontColor=#444444;align=left;spacingLeft=14;spacingRight=10;verticalAlign=middle;" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b&gt;Moving the data&lt;/b&gt;&lt;br&gt;Specifications, APIs, interconnection services, data integration, exchange formats, and secure communication protocols.&lt;/font&gt;" vertex="1">
+          <mxGeometry height="92" width="440" x="360" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="tech-edge" edge="1" parent="1" source="tech" style="endArrow=classic;html=1;strokeColor=#F7941E;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="tech-ctx">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
