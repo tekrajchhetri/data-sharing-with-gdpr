@@ -21,7 +21,7 @@ Welcome to the official GitHub repository for the book *Data Sharing with GDPR*.
   Professor, Wageningen University & Research, Netherlands  
 
 - **George Konstantinidis**  
-  Associate Professor, University of Southampton, United Kingdom  
+  Professor, University of Southampton, United Kingdom  
 
 ---
 
