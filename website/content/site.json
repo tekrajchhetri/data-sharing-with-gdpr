@@ -1,0 +1,302 @@
+{
+  "chapters": [
+    {
+      "title": "Introduction",
+      "slug": "introduction",
+      "summary": "Privacy and data protection: how they differ, why they matter in data sharing, and where GDPR fits in the data ecosystem.",
+      "topics": [
+        "Introduces the concepts of privacy and data protection",
+        "Differentiates privacy from data protection",
+        "Discusses the importance of privacy in data sharing",
+        "Briefly introduces GDPR and its role in the data ecosystem"
+      ],
+      "resources": []
+    },
+    {
+      "title": "Foundations of GDPR",
+      "slug": "foundations-of-gdpr",
+      "summary": "An introduction to GDPR’s legal bases, scope, and applicability, including its impact on data sharing and the data economy.",
+      "topics": [
+        "Provides a foundational understanding of GDPR and its legal bases",
+        "Explains the scope and applicability of GDPR",
+        "Highlights its impact on data sharing and the economy, including fines and violations"
+      ],
+      "resources": [
+        {
+          "label": "GDPR framework guide",
+          "url": "ch2/gdpr_framework.html"
+        },
+        {
+          "label": "GDPR articles reference",
+          "url": "ch2/gdpr_guide.html"
+        },
+        {
+          "label": "Principles mindmap",
+          "url": "ch2/gdpr_principles.html"
+        },
+        {
+          "label": "Analysis notebook and figures",
+          "url": "https://github.com/tekrajchhetri/data-sharing-with-gdpr/tree/master/ch2/data_analysis"
+        }
+      ]
+    },
+    {
+      "title": "Data Sharing and the Data Economy",
+      "slug": "data-sharing-and-the-data-economy",
+      "summary": "Explore trust, data quality, and interoperability, and the role of data sharing in sectors such as healthcare.",
+      "topics": [
+        "Explores the concepts of data sharing, trust, quality, and interoperability",
+        "Introduces the data economy and its relation to sharing practices",
+        "Highlights applications in sectors like healthcare"
+      ],
+      "resources": []
+    },
+    {
+      "title": "Ethical Considerations in Data Sharing",
+      "slug": "ethical-considerations",
+      "summary": "Examine data minimization, transparency, and the ethical choices that shape responsible data practices.",
+      "topics": [
+        "Focuses on ethical principles like data minimization and transparency",
+        "Discusses what to avoid to prevent unethical data practices"
+      ],
+      "resources": []
+    },
+    {
+      "title": "Ensuring GDPR Compliance",
+      "slug": "ensuring-gdpr-compliance",
+      "summary": "Accountability, compliance strategies, and the technical and organizational measures involved in handling personal data responsibly.",
+      "topics": [
+        "Discusses compliance strategies and the principle of accountability",
+        "Provides technical and organizational measures to remain compliant"
+      ],
+      "resources": []
+    },
+    {
+      "title": "Building Secure and Interoperable Data Sharing Systems",
+      "slug": "secure-and-interoperable-systems",
+      "summary": "Move from principles to system design: data quality, interoperability, trust, decentralized systems, and practical implementation.",
+      "topics": [
+        "Covers data quality, interoperability, and trust from a system design perspective",
+        "Introduces decentralized systems (e.g., IPFS)",
+        "Shares best practices and common pitfalls"
+      ],
+      "resources": [
+        {
+          "label": "Hybrid encryption examples",
+          "url": "https://github.com/tekrajchhetri/data-sharing-with-gdpr/tree/master/ch6/hybrid_encryption"
+        },
+        {
+          "label": "Interoperability notebook",
+          "url": "https://github.com/tekrajchhetri/data-sharing-with-gdpr/blob/master/ch6/interoperability/technical_interoperability.ipynb"
+        }
+      ]
+    },
+    {
+      "title": "Case Studies",
+      "slug": "case-studies",
+      "summary": "Explore real-world applications and failure points, including hospital patient monitoring systems.",
+      "topics": [
+        "Analyzes real-world applications and failure points",
+        "Includes examples like hospital patient monitoring systems"
+      ],
+      "resources": []
+    },
+    {
+      "title": "Trends and Considerations",
+      "slug": "trends-and-considerations",
+      "summary": "A look at global data protection trends and regional regulations, including China’s PIPL and the European AI Act.",
+      "topics": [
+        "Discusses global data protection trends and regional regulations",
+        "Examples include China’s PIPL and the European AI Act"
+      ],
+      "resources": []
+    },
+    {
+      "title": "Conclusion",
+      "slug": "conclusion",
+      "summary": "Bring together the key ideas for building secure, ethical, and legally compliant data sharing systems.",
+      "topics": [
+        "Recaps key takeaways from the book"
+      ],
+      "resources": []
+    }
+  ],
+  "resources": [
+    {
+      "chapter": "02",
+      "type": "INTERACTIVE GUIDE",
+      "title": "The GDPR framework",
+      "description": "Explore the GDPR framework with the book’s accompanying guide.",
+      "url": "ch2/gdpr_framework.html",
+      "action": "Explore the guide"
+    },
+    {
+      "chapter": "02",
+      "type": "REFERENCE",
+      "title": "GDPR articles, explained",
+      "description": "Navigate the articles and concepts referenced in the foundations chapter.",
+      "url": "ch2/gdpr_guide.html",
+      "action": "Open the reference"
+    },
+    {
+      "chapter": "02",
+      "type": "VISUAL RESOURCE",
+      "title": "A map of the principles",
+      "description": "See GDPR’s core principles together in a visual mindmap.",
+      "url": "ch2/gdpr_principles.html",
+      "action": "View the mindmap"
+    },
+    {
+      "chapter": "02",
+      "type": "NOTEBOOK & DATA",
+      "title": "Exploring GDPR enforcement",
+      "description": "Access the analysis notebook, source data, and figures in the book repository.",
+      "url": "https://github.com/tekrajchhetri/data-sharing-with-gdpr/tree/master/ch2/data_analysis",
+      "action": "View on GitHub"
+    },
+    {
+      "chapter": "06",
+      "type": "PYTHON EXAMPLES",
+      "title": "Hybrid encryption in practice",
+      "description": "Explore the implementation and example scripts for hybrid encryption.",
+      "url": "https://github.com/tekrajchhetri/data-sharing-with-gdpr/tree/master/ch6/hybrid_encryption",
+      "action": "View on GitHub"
+    },
+    {
+      "chapter": "06",
+      "type": "JUPYTER NOTEBOOK",
+      "title": "Making systems work together",
+      "description": "Work through the technical interoperability notebook accompanying Chapter 6.",
+      "url": "https://github.com/tekrajchhetri/data-sharing-with-gdpr/blob/master/ch6/interoperability/technical_interoperability.ipynb",
+      "action": "View on GitHub"
+    }
+  ],
+  "authors": [
+    {
+      "name": "Tek Raj Chhetri",
+      "initials": "TC",
+      "affiliation": "Massachusetts Institute of Technology · CAIR-Nepal",
+      "id": "tek-raj-chhetri",
+      "role": "Postdoctoral Associate",
+      "bio": [
+        "Tek Raj Chhetri develops knowledge-centric AI systems for scientific discovery, trustworthy reasoning, and governance-aware deployment. He is a Postdoctoral Associate at MIT and the founder and director of CAIR-Nepal.",
+        "His work spans knowledge graphs, foundation models, and privacy-aware data systems, including BrainKB and research on GDPR-compliant data sharing."
+      ],
+      "topics": [
+        "Knowledge graphs",
+        "Trustworthy AI",
+        "Data privacy"
+      ],
+      "sources": [
+        {
+          "label": "Personal website",
+          "url": "https://tekrajchhetri.com/"
+        },
+        {
+          "label": "CAIR-Nepal profile",
+          "url": "https://www.cair-nepal.org/team/members/tek-raj-chhetri/"
+        }
+      ]
+    },
+    {
+      "name": "Semih Yumusak",
+      "initials": "SY",
+      "affiliation": "TOBB ETÜ",
+      "id": "semih-yumusak",
+      "role": "Assistant Professor",
+      "bio": [
+        "Semih Yumusak researches large language models, knowledge graphs, and semantic data infrastructure. He is listed as an Assistant Professor in Computer Engineering at TOBB ETÜ.",
+        "Previously a Postdoctoral Research Fellow at the University of Southampton, he worked on UPCAST and RAISE. His research includes data-sharing negotiation, ODRL policies, and privacy-aware data marketplaces."
+      ],
+      "topics": [
+        "Semantic Web",
+        "Data marketplaces",
+        "Large language models"
+      ],
+      "sources": [
+        {
+          "label": "Personal website",
+          "url": "https://semihyumusak.com.tr/"
+        },
+        {
+          "label": "University directory",
+          "url": "https://www.etu.edu.tr/en/bolum/computer-engineering/akademik-kadro?o=ad"
+        }
+      ]
+    },
+    {
+      "name": "Luis-Daniel Ibáñez",
+      "initials": "LI",
+      "affiliation": "University of Southampton",
+      "id": "luis-daniel-ibanez",
+      "role": "Lecturer in Computer Science",
+      "bio": [
+        "Luis-Daniel Ibáñez’s research interests include dataset retrieval, Linked Data, and decentralised technologies. He is listed as a Lecturer in Computer Science by the University of Southampton’s Centre for Machine Intelligence.",
+        "His work connects data protection and distributed data systems. His published conference biography describes research on blockchain and GDPR, alongside experience coordinating research projects and leading the MSc Data Science programme."
+      ],
+      "topics": [
+        "Linked Data",
+        "Dataset retrieval",
+        "Decentralised systems"
+      ],
+      "sources": [
+        {
+          "label": "University profile listing",
+          "url": "https://www.southampton.ac.uk/research/institutes-centres/centre-for-machine-intelligence/our-people"
+        },
+        {
+          "label": "LAILEC biography (2024)",
+          "url": "https://www.law.kuleuven.be/citip/en/citip-conferences/lailec/lailec-2024/speakers-bio/luis-daniel-ibanez.pdf"
+        }
+      ]
+    },
+    {
+      "name": "Anna Fensel",
+      "initials": "AF",
+      "affiliation": "Wageningen University & Research",
+      "id": "anna-fensel",
+      "role": "Professor of Artificial Intelligence & Data Science",
+      "bio": [
+        "Anna Fensel is a Full Professor in Artificial Intelligence and Data Science at Wageningen University & Research. Her areas of expertise include ontologies, knowledge modelling, Linked Open Data, the Semantic Web, and FAIR data.",
+        "She previously held research and academic roles at the University of Innsbruck, Telecommunications Research Center Vienna, and the University of Surrey. She earned her doctorate and habilitation in Computer Science at the University of Innsbruck."
+      ],
+      "topics": [
+        "Semantic technologies",
+        "Knowledge modelling",
+        "FAIR data"
+      ],
+      "sources": [
+        {
+          "label": "University biography",
+          "url": "https://www.wur.nl/nl/personen/profdr-anna-fensel"
+        },
+        {
+          "label": "Research & publications",
+          "url": "https://research.wur.nl/en/persons/anna-fensel/"
+        }
+      ]
+    },
+    {
+      "name": "George Konstantinidis",
+      "initials": "GK",
+      "affiliation": "University of Southampton",
+      "id": "george-konstantinidis",
+      "role": "Professor",
+      "bio": [
+        "George Konstantinidis is a Professor at the University of Southampton and a member of the Data, Intelligence and Society research group. His research includes compliant data markets, data integration, and trust in data workflows.",
+        "His university profile lists projects including DataPACT and RAISE Suite, alongside work on UPCAST. His publications address policy semantics, consent management, and knowledge graph validation."
+      ],
+      "topics": [
+        "Data integration",
+        "Policy semantics",
+        "Trust & compliance"
+      ],
+      "sources": [
+        {
+          "label": "University profile & publications",
+          "url": "https://www.southampton.ac.uk/people/5xlfwx/professor-george-konstantinidis"
+        }
+      ]
+    }
+  ]
+}

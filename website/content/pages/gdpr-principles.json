@@ -1,0 +1,11 @@
+{
+  "path": "ch2/gdpr_principles.html",
+  "type": "figure",
+  "chapter": "02",
+  "kicker": "Visual resource",
+  "title": "A map of the principles",
+  "lede": "GDPR’s core principles shown together in one mindmap, as a visual companion to Foundations of GDPR.",
+  "image": "gdpr_principles_mindmap.png",
+  "alt": "Mindmap of GDPR principles, including lawfulness, fairness and transparency, purpose limitation, data minimisation, accuracy, storage limitation, integrity and confidentiality, and accountability.",
+  "download": "Download the original image"
+}

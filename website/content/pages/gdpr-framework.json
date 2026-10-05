@@ -1,0 +1,223 @@
+{
+  "path": "ch2/gdpr_framework.html",
+  "type": "guide",
+  "chapter": "02",
+  "kicker": "Interactive guide",
+  "title": "The GDPR framework",
+  "lede": "The context and key provisions of the General Data Protection Regulation, from its purpose and scope to rights, accountability, transfers, and enforcement, with an example for each idea.",
+  "search": "Search the framework…",
+  "sections": [
+    {
+      "title": "Harmonization Goal",
+      "items": [
+        {
+          "text": "The GDPR was introduced to unify data protection laws across EU Member States, ensuring a consistent level of protection."
+        },
+        {
+          "text": "It also aims to ensure the free flow of personal data within the EU internal market.",
+          "example": "A cloud service operating in multiple EU countries doesn't need to follow different rules in each country.",
+          "reference": "Recitals 1–3"
+        },
+        {
+          "text": "The GDPR replaces the outdated Data Protection Directive 95/46/EC, modernizing legal frameworks for the digital age."
+        }
+      ]
+    },
+    {
+      "title": "Not Applicable To",
+      "items": [
+        {
+          "text": "The GDPR does not apply to activities related to law enforcement, which are covered under Directive (EU) 2016/680.",
+          "example": "Police investigations are governed by separate rules.",
+          "reference": "Recital 19"
+        },
+        {
+          "text": "It also excludes purely personal or household activities with no connection to a professional or commercial activity.",
+          "example": "Saving your family vacation photos on your private laptop.",
+          "reference": "Recital 18"
+        },
+        {
+          "text": "National security, military, and defense activities are also excluded from GDPR's scope.",
+          "example": "Intelligence agency surveillance programs.",
+          "reference": "Recital 16"
+        }
+      ]
+    },
+    {
+      "title": "Data Protection as a Right",
+      "items": [
+        {
+          "text": "Personal data protection is recognized as a fundamental right under Article 8 of the EU Charter of Fundamental Rights.",
+          "example": "Individuals have the right to know and control who processes their data and for what purposes."
+        },
+        {
+          "text": "Recital 1 affirms the importance of safeguarding this right for dignity and personal freedom."
+        }
+      ]
+    },
+    {
+      "title": "Territorial Scope",
+      "items": [
+        {
+          "text": "The GDPR applies not only to entities within the EU but also to non-EU organizations offering goods or services to individuals in the EU.",
+          "example": "A US-based website that sells products to customers in France must comply with GDPR.",
+          "reference": "Recitals 23–25"
+        }
+      ]
+    },
+    {
+      "title": "Legal Bases for Processing",
+      "items": [
+        {
+          "text": "Consent must be freely given, specific, informed, and unambiguous to be valid.",
+          "example": "Ticking a checkbox to agree to marketing emails.",
+          "reference": "Article 6, Recitals 32 and 42"
+        },
+        {
+          "text": "Contractual necessity allows processing if needed to fulfill a contract.",
+          "example": "Processing a shipping address to deliver a purchase."
+        },
+        {
+          "text": "Legal obligation allows processing if required by EU or Member State law.",
+          "example": "Retaining payroll records for tax compliance."
+        },
+        {
+          "text": "Vital interests permit processing to protect someone's life.",
+          "example": "Accessing medical records in an emergency."
+        },
+        {
+          "text": "Public task covers processing done by public authorities or for tasks in the public interest.",
+          "example": "Public health monitoring."
+        },
+        {
+          "text": "Legitimate interests may justify processing where there is minimal privacy impact and a clear purpose.",
+          "example": "Using analytics to improve a service."
+        }
+      ]
+    },
+    {
+      "title": "Special Categories of Data",
+      "items": [
+        {
+          "text": "These include sensitive data such as race, health, political views, or biometric data, and require higher protection.",
+          "example": "Processing genetic test results.",
+          "reference": "Article 9, Recitals 51–56"
+        },
+        {
+          "text": "Processing is allowed only under strict conditions, such as explicit consent or legal necessity."
+        }
+      ]
+    },
+    {
+      "title": "Data Subject Rights",
+      "items": [
+        {
+          "text": "Individuals have the right to access, correct, erase, or restrict their data, and to object or request portability.",
+          "example": "A user can ask to delete their social media account and download their data."
+        },
+        {
+          "text": "They also have rights against automated decision-making, including profiling."
+        }
+      ]
+    },
+    {
+      "title": "Data Protection Officer",
+      "items": [
+        {
+          "text": "Organizations engaged in large-scale or sensitive data processing must appoint a Data Protection Officer (DPO).",
+          "example": "A hospital or social media company needs a DPO to ensure compliance.",
+          "reference": "Article 37, Recital 97"
+        }
+      ]
+    },
+    {
+      "title": "Risk-Based Approach",
+      "items": [
+        {
+          "text": "The GDPR tailors obligations based on the risk posed to individuals' rights and freedoms.",
+          "example": "Using facial recognition software requires stricter controls than collecting email addresses.",
+          "reference": "Recitals 75–77"
+        },
+        {
+          "text": "Data Protection Impact Assessments (DPIAs) are mandatory for high-risk processing operations.",
+          "example": "A bank using AI to evaluate loan applications must conduct a DPIA.",
+          "reference": "Recitals 84–94"
+        }
+      ]
+    },
+    {
+      "title": "Data Breach Notification",
+      "items": [
+        {
+          "text": "Organizations must notify supervisory authorities of personal data breaches within 72 hours if there is a risk to individuals.",
+          "example": "Notifying the data protection authority after customer records are hacked.",
+          "reference": "Article 33"
+        },
+        {
+          "text": "If there is a high risk to individuals, they must also be informed directly.",
+          "example": "Alerting users if their passwords are exposed in a breach.",
+          "reference": "Article 34"
+        }
+      ]
+    },
+    {
+      "title": "Accountability & Compliance",
+      "items": [
+        {
+          "text": "Controllers must implement data protection measures and be able to demonstrate compliance.",
+          "example": "Documenting policies and staff training programs."
+        },
+        {
+          "text": "Privacy by design and by default must be built into systems and processes.",
+          "example": "Default settings on an app must favor privacy.",
+          "reference": "Article 25, Recital 78"
+        }
+      ]
+    },
+    {
+      "title": "Codes of Conduct & Certification",
+      "items": [
+        {
+          "text": "Industry codes and certifications are encouraged to help especially SMEs comply.",
+          "example": "A startup using a GDPR-certified CRM platform.",
+          "reference": "Recitals 98–100"
+        }
+      ]
+    },
+    {
+      "title": "International Transfers",
+      "items": [
+        {
+          "text": "Transfers to third countries can occur if the European Commission has issued an adequacy decision.",
+          "example": "Data can be transferred to Japan, which has such a decision.",
+          "reference": "Recitals 103–106"
+        },
+        {
+          "text": "If not, safeguards like Standard Contractual Clauses (SCCs), Binding Corporate Rules (BCRs), or derogations must be used.",
+          "example": "A multinational uses BCRs to transfer HR data between EU and US offices.",
+          "reference": "Recitals 108–110"
+        }
+      ]
+    },
+    {
+      "title": "Enforcement & Sanctions",
+      "items": [
+        {
+          "text": "Independent national supervisory authorities are responsible for enforcement.",
+          "example": "France's CNIL or Ireland's DPC.",
+          "reference": "Recitals 117–121"
+        },
+        {
+          "text": "The one-stop-shop mechanism ensures a lead authority handles cross-border complaints.",
+          "example": "Ireland leads cases for companies like Meta.",
+          "reference": "Recital 124"
+        },
+        {
+          "text": "Serious violations can result in fines up to €20 million or 4% of global turnover.",
+          "example": "Amazon was fined €746 million under GDPR.",
+          "reference": "Recital 148"
+        }
+      ]
+    }
+  ]
+}

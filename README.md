@@ -102,19 +102,43 @@ Welcome to the official GitHub repository for the book *Data Sharing with GDPR*.
 
 ## 📂 Repository Structure
 
-- `/chapters/` – Code snippets and technical content per chapter  
-- `/notebooks/` – Jupyter notebooks for hands-on exploration  
-- `/datasets/` – Sample datasets used in exercises  
-- `/resources/` – Templates, legal checklists, figures, and diagrams  
-- `requirements.txt` – Python dependencies for running the examples  
+```
+data-sharing-with-gdpr/
+├── ch2/                      Chapter 2: Foundations of GDPR
+│   └── data_analysis/        GDPR fines analysis notebook, data, and figures
+├── ch6/                      Chapter 6: Secure and interoperable systems
+│   ├── hybrid_encryption/    Hybrid encryption implementation and examples
+│   └── interoperability/     Technical interoperability notebook
+├── figures/                  Source diagrams (draw.io)
+├── website/                  Companion website (datasharingbook.org)
+└── .github/workflows/        Website build and deployment
+```
+
+Each chapter folder has its own `readme.md`.
 
 ---
 
 ## 🚀 Getting Started
 
 ```bash
-git clone https://github.com/your-username/data-sharing-gdpr.git
-cd data-sharing-gdpr
+git clone https://github.com/tekrajchhetri/data-sharing-with-gdpr.git
+cd data-sharing-with-gdpr
 python -m venv venv
 source venv/bin/activate  # or use venv\Scripts\activate on Windows
-pip install -r requirements.txt
+pip install -r ch6/hybrid_encryption/requirements.txt
+```
+
+The notebooks in `ch2/data_analysis/` and `ch6/interoperability/` open in Jupyter.
+
+---
+
+## 🌐 Companion Website
+
+The website source is in [`website/`](website/). Preview it locally:
+
+```bash
+python3 website/build.py
+python3 -m http.server 4186 --directory website/_site
+```
+
+Pushing changes under `website/` to `master` deploys the site to GitHub Pages automatically. See [`website/README.md`](website/README.md) for how to add chapters and resources.

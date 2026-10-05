@@ -1,0 +1,191 @@
+{
+  "path": "ch2/gdpr_guide.html",
+  "type": "guide",
+  "chapter": "02",
+  "kicker": "Reference",
+  "title": "GDPR articles, explained",
+  "lede": "A quick reference to the articles discussed in the foundations chapter, grouped by theme: principles, rights, protection, lawful processing, transfers, and remedies.",
+  "search": "Search articles…",
+  "sections": [
+    {
+      "title": "Core Principles",
+      "items": [
+        {
+          "label": "Article 5.1.a",
+          "title": "Lawfulness, Fairness and Transparency",
+          "text": "Ensures data is processed lawfully, fairly and transparently"
+        },
+        {
+          "label": "Article 5.1.b",
+          "title": "Purpose Limitation",
+          "text": "Data must be collected for specified, explicit purposes"
+        },
+        {
+          "label": "Article 5.1.c",
+          "title": "Data Minimisation",
+          "text": "Only data necessary for the purpose should be processed"
+        },
+        {
+          "label": "Article 5.1.d",
+          "title": "Accuracy",
+          "text": "Personal data must be accurate and kept up to date"
+        },
+        {
+          "label": "Article 5.1.e",
+          "title": "Storage Limitation",
+          "text": "Keep data no longer than necessary"
+        },
+        {
+          "label": "Article 5.1.f",
+          "title": "Integrity and Confidentiality",
+          "text": "Ensure security and confidentiality of personal data"
+        },
+        {
+          "label": "Article 5.2",
+          "title": "Accountability",
+          "text": "Controllers are responsible for GDPR compliance"
+        }
+      ]
+    },
+    {
+      "title": "Data Subject Rights",
+      "items": [
+        {
+          "label": "Article 15",
+          "title": "Right to Access",
+          "text": "Right to access personal data"
+        },
+        {
+          "label": "Article 16",
+          "title": "Right to Rectification",
+          "text": "Right to rectify inaccurate data"
+        },
+        {
+          "label": "Article 17",
+          "title": "Right to Erasure",
+          "text": "Right to erasure (right to be forgotten)"
+        },
+        {
+          "label": "Article 18",
+          "title": "Right to Restriction",
+          "text": "Right to restrict processing"
+        },
+        {
+          "label": "Article 20",
+          "title": "Right to Data Portability",
+          "text": "Right to data portability"
+        },
+        {
+          "label": "Article 21",
+          "title": "Right to Object",
+          "text": "Right to object to processing"
+        }
+      ]
+    },
+    {
+      "title": "Data Protection",
+      "items": [
+        {
+          "label": "Article 25",
+          "title": "Privacy by Design and Default",
+          "text": "Data protection must be embedded into system design"
+        },
+        {
+          "label": "Article 32",
+          "title": "Security of Processing",
+          "text": "Requires appropriate technical and organizational security"
+        },
+        {
+          "label": "Article 33",
+          "title": "Breach Notification to Authority",
+          "text": "Notify authority within 72 hours of data breach"
+        },
+        {
+          "label": "Article 34",
+          "title": "Breach Notification to Individuals",
+          "text": "Inform affected individuals of data breach if high risk"
+        },
+        {
+          "label": "Article 35",
+          "title": "Data Protection Impact Assessment",
+          "text": "Required for high-risk processing operations"
+        }
+      ]
+    },
+    {
+      "title": "Special Categories",
+      "items": [
+        {
+          "label": "Article 6",
+          "title": "Lawful Basis",
+          "text": "Lists lawful bases for processing personal data"
+        },
+        {
+          "label": "Article 7",
+          "title": "Conditions for Consent",
+          "text": "Conditions for valid consent"
+        },
+        {
+          "label": "Article 8",
+          "title": "Children's Consent",
+          "text": "Consent rules for children's data"
+        },
+        {
+          "label": "Article 9",
+          "title": "Sensitive Data",
+          "text": "Prohibits processing of sensitive data unless exceptions apply"
+        }
+      ]
+    },
+    {
+      "title": "International Transfers",
+      "items": [
+        {
+          "label": "Article 44",
+          "title": "General Principles",
+          "text": "General principles for international data transfers"
+        },
+        {
+          "label": "Article 45",
+          "title": "Adequacy Decisions",
+          "text": "Transfers based on adequacy decisions"
+        },
+        {
+          "label": "Article 46",
+          "title": "Appropriate Safeguards",
+          "text": "Transfers with appropriate safeguards"
+        },
+        {
+          "label": "Article 49",
+          "title": "Derogations",
+          "text": "Derogations for specific situations"
+        }
+      ]
+    },
+    {
+      "title": "Remedies & Penalties",
+      "items": [
+        {
+          "label": "Article 77",
+          "title": "Right to Lodge Complaint",
+          "text": "Right to lodge a complaint"
+        },
+        {
+          "label": "Article 79",
+          "title": "Right to Judicial Remedy",
+          "text": "Right to judicial remedy against controller/processor"
+        },
+        {
+          "label": "Article 82",
+          "title": "Right to Compensation",
+          "text": "Right to compensation"
+        },
+        {
+          "label": "Article 83",
+          "title": "Administrative Fines",
+          "text": "Administrative fines"
+        }
+      ]
+    }
+  ]
+}
