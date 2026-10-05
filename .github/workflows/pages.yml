@@ -1,28 +1,43 @@
-name: Publish book website
+name: Deploy website
+
+# Builds website/ into website/_site and publishes it to GitHub Pages.
+# Pull requests only build and check links; pushes to master also deploy.
 on:
   push:
-    branches: [master, main]
-    paths: ['book_site/**', 'content/**', 'scripts/**', '.github/workflows/pages.yml']
+    branches: [master]
+    paths: ['website/**', '.github/workflows/pages.yml']
+  pull_request:
+    paths: ['website/**', '.github/workflows/pages.yml']
   workflow_dispatch:
+
 permissions:
   contents: read
+
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - name: Build site
-        run: python3 scripts/build.py
-      - name: Check local links
-        run: python3 scripts/check.py
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v4
+      - uses: actions/setup-python@v5
         with:
-          path: book_site
+          python-version: '3.12'
+      - name: Build site
+        run: python3 website/build.py
+      - name: Check links
+        run: python3 website/check.py
+      - if: github.event_name != 'pull_request'
+        uses: actions/configure-pages@v5
+      - if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: website/_site
+
   deploy:
+    if: github.event_name != 'pull_request'
     needs: build
     runs-on: ubuntu-latest
     permissions:
@@ -32,6 +47,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
